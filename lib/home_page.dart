@@ -185,9 +185,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   )),
             ),
-            SizedBox(
-              height: 5,
-            ),
+            SizedBox(height: 5),
             // Row 4
             Container(
               height: 180,
@@ -274,6 +272,71 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            // Row 5
+            Row(
+              children: [
+                Text(
+                  "Area of focus",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: color.AppColor.homePageTitle,
+                  ),
+                ),
+              ],
+            ),
+            // Collection:
+            Expanded(
+              child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (_, i) {
+                  return Row(
+                    children: [
+                      Container(
+                        height: 170,
+                        width: 200,
+                        padding: EdgeInsets.only(
+                          bottom: 5,
+                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.white, 
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage("assets/ex1.png"),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(5, 5),
+                                color: color.AppColor.gradientSecond
+                                    .withOpacity(0.1),
+                              ),
+                              BoxShadow(
+                                blurRadius: 3,
+                                offset: Offset(-5, -5),
+                                color: color.AppColor.gradientSecond
+                                    .withOpacity(0.1),
+                              ),
+                            ]),
+                        child: Center(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              "glutes",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: color.AppColor.homePageDetail,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ],

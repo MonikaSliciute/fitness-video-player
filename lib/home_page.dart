@@ -185,6 +185,57 @@ class _HomePageState extends State<HomePage> {
                     ],
                   )),
             ),
+            SizedBox(
+              height: 5,
+            ),
+            // Row 4
+            Container(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
+              //padding: EdgeInsets.all(5),
+              child: Stack(
+                // allows overlapping
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 120,
+                    margin: const EdgeInsets.only(top: 30),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage("assets/card.jpg"),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 40,
+                          offset: Offset(8, 10),
+                          color: color.AppColor.gradientSecond.withOpacity(0.3),
+                        ),
+                        BoxShadow(
+                          blurRadius: 10,
+                          offset: Offset(-1, -5),
+                          color: color.AppColor.gradientSecond.withOpacity(0.3),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(
+                      right: 200,
+                      bottom: 30,
+                    ),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/figure.png"),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -108,6 +108,82 @@ class _HomePageState extends State<HomePage> {
                       color: color.AppColor.gradientSecond.withOpacity(0.2))
                 ],
               ),
+              child: Container(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    top: 25,
+                    right: 20,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // align left
+                    children: [
+                      Text("Next workout",
+                          style: TextStyle(
+                              fontSize: 16,
+                              color:
+                                  color.AppColor.homePageContainerTextSmall)),
+                      SizedBox(
+                        height: 5,
+                      ), // spacer between texts
+                      Text("Legs Toning",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color:
+                                  color.AppColor.homePageContainerTextSmall)),
+                      SizedBox(
+                        height: 5,
+                      ), // spacer between texts
+                      Text("and Glutes Workout",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color:
+                                  color.AppColor.homePageContainerTextSmall)),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      // bottom row of purple container
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          // bottom left corner row
+                          Row(
+                            children: [
+                              Icon(Icons.timer,
+                                  size: 20,
+                                  color: color
+                                      .AppColor.homePageContainerTextSmall),
+                              SizedBox(
+                                  width: 10), // spacer between icon and text
+                              Text(
+                                "60 min",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: color
+                                        .AppColor.homePageContainerTextSmall),
+                              ),
+                            ],
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(60),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: color.AppColor.gradientFirst,
+                                    blurRadius: 10,
+                                    offset: Offset(4, 8)),
+                              ],
+                            ),
+                            child: Icon(
+                              Icons.play_circle_fill,
+                              color: Colors.white,
+                              size: 60,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
             ),
           ],
         ),

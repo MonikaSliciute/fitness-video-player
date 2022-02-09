@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
 
@@ -9,6 +11,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List info = [];
+  _initData() {
+    DefaultAssetBundle.of(context).loadString("json/info.json").then((value) {
+      info = json.decode(value);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,7 +317,7 @@ class _HomePageState extends State<HomePage> {
                           bottom: 5,
                         ),
                         decoration: BoxDecoration(
-                            color: Colors.white, 
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                               image: AssetImage("assets/ex1.png"),

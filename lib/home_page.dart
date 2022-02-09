@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: [
+            // Row 1
             Row(
-              // Row 1
               children: [
                 Text(
                   'Training',
@@ -53,6 +53,31 @@ class _HomePageState extends State<HomePage> {
                   size: 20,
                   color: color.AppColor.homePageIcons,
                 ),
+              ],
+            ),
+            SizedBox(height: 30), // spacer between rows 1 and 2
+            // Row 2
+            Row(
+              children: [
+                Text(
+                  "Your program",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: color.AppColor.homePageSubtitle,
+                  ),
+                ),
+                Expanded(child: Container()),
+                Text(
+                  "Details",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: color.AppColor.homePageDetail,
+                  ),
+                ),
+                SizedBox(width: 5), // spacer between text and icon
+                Icon(Icons.arrow_forward,
+                    size: 20, color: color.AppColor.homePageIcons),
               ],
             ),
           ],

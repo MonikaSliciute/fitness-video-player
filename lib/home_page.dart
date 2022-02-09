@@ -1,7 +1,15 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'colors.dart' as color;
+
+class ExerciseItem {
+  String title;
+  String path;
+  ExerciseItem(this.title, this.path);
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,9 +20,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List info = [];
-  _initData() {
-    DefaultAssetBundle.of(context).loadString("json/info.json").then((value) {
+  _initData() async {
+    await DefaultAssetBundle.of(context)
+        .loadString("json/info.json")
+        .then((value) {
       info = json.decode(value);
+      return info;
     });
   }
 
@@ -306,7 +317,7 @@ class _HomePageState extends State<HomePage> {
             // Collection:
             Expanded(
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: info.length, // size of info
                 itemBuilder: (_, i) {
                   return Row(
                     children: [
@@ -320,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                              image: AssetImage("assets/ex1.png"),
+                              image: AssetImage(info[i]['img']),
                             ),
                             boxShadow: [
                               BoxShadow(
@@ -340,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
-                              "glutes",
+                              info[i]['title'],
                               style: TextStyle(
                                 fontSize: 20,
                                 color: color.AppColor.homePageDetail,
